@@ -21,6 +21,7 @@ class UserDetails extends React.Component {
   }
 
   componentDidMount() {
+    // We will need this ID to make an API call for the particular user.
     // const {
     //   renderProps: {
     //     match: {
@@ -44,7 +45,6 @@ class UserDetails extends React.Component {
 
   render() {
     const { data } = this.state;
-    // console.log(data, styles);
     return (
       <Container>
         <Typography variant="h4" component="h2" className={styles.heading}>
