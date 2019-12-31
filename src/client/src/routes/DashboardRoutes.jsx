@@ -7,6 +7,8 @@ import UserDetails from "./Dashboard/UserDetails";
 import AddNewAsset from "./Dashboard/AddNewAsset";
 import AssignAsset from "./Dashboard/AssignAsset";
 import GenerateReport from "./Dashboard/GenerateReport";
+import DeleteCategory from "./Dashboard/DeleteCategory";
+import DisposeAsset from "./Dashboard/DisposeAsset";
 
 const DashboardRoutes = props => {
   const { isAuth } = props;
@@ -25,6 +27,11 @@ const DashboardRoutes = props => {
       />
       <Route
         exact
+        path="/dashboard/assets/delete"
+        render={renderProps => <DisposeAsset renderProps={renderProps} />}
+      />
+      <Route
+        exact
         path="/dashboard/assets/add_asset"
         render={() => <AddNewAsset />}
       />
@@ -32,6 +39,11 @@ const DashboardRoutes = props => {
         exact
         path="/dashboard/generate_report"
         render={() => <GenerateReport />}
+      />
+      <Route
+        exact
+        path="/dashboard/categories/delete"
+        render={() => <DeleteCategory />}
       />
     </>
   ) : (
