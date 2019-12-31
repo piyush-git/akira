@@ -27,7 +27,7 @@ const DashboardRoutes = props => {
       />
       <Route
         exact
-        path="/dashboard/assets/delete"
+        path="/dashboard/assets/dispose"
         render={renderProps => <DisposeAsset renderProps={renderProps} />}
       />
       <Route
