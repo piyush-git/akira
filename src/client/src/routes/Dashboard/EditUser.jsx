@@ -7,6 +7,11 @@ import {
   Container,
   Typography
 } from "@material-ui/core";
+import {
+  MuiPickersUtilsProvider,
+  KeyboardDatePicker
+} from "@material-ui/pickers";
+import DateFnsUtils from "@date-io/date-fns";
 import styles from "./EditUser.module.css";
 
 class EditUser extends Component {
@@ -18,6 +23,7 @@ class EditUser extends Component {
       lastName: "",
       password: "",
       confirmPassword: "",
+      dateOfBirth: new Date(Date.now()),
       profilePicture:
         "https://www.guidedogs.org/wp-content/uploads/2019/11/website-donate-mobile.jpg",
       phoneNumber: "",
@@ -27,6 +33,10 @@ class EditUser extends Component {
 
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
+  };
+
+  handleDateChange = () => {
+    // this.setState({ dateOfBirth: e})
   };
 
   handleSubmit = e => {
@@ -41,7 +51,8 @@ class EditUser extends Component {
       confirmPassword,
       profilePicture,
       phoneNumber,
-      address
+      address,
+      dateOfBirth
     } = this.state;
 
     return (
@@ -94,6 +105,18 @@ class EditUser extends Component {
                   onChange={e => this.handleChange(e)}
                   value={lastName}
                 />
+              </FormControl>
+              <FormControl>
+                <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                  <KeyboardDatePicker
+                    margin="normal"
+                    label="Date of Birth"
+                    format="dd/MM/yyyy"
+                    value={dateOfBirth}
+                    onChange={this.handleDateChange}
+                    fullWidth
+                  />
+                </MuiPickersUtilsProvider>
               </FormControl>
               <FormControl>
                 <TextField
