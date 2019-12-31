@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import ListUsers from "./Dashboard/ListUsers";
 import UserDetails from "./Dashboard/UserDetails";
+import AddNewAsset from "./Dashboard/AddNewAsset";
 
 const DashboardRoutes = props => {
   const { isAuth } = props;
@@ -13,6 +14,11 @@ const DashboardRoutes = props => {
       <Route
         path="/dashboard/users/:id"
         render={renderProps => <UserDetails renderProps={renderProps} />}
+      />
+      <Route
+        exact
+        path="/dashboard/assets/add_asset"
+        render={() => <AddNewAsset />}
       />
     </>
   ) : (
