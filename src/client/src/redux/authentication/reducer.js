@@ -1,7 +1,8 @@
 import { LOGIN_USER, LOGOUT_USER } from "./actionTypes";
 
 const initState = {
-  isAuth: false
+  isAuth: false,
+  language: "en"
 };
 
 const reducer = (state = initState, action) => {

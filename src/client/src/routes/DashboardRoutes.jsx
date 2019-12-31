@@ -2,13 +2,13 @@ import React from "react";
 import { Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import Dashboard from "./Dashboard/Dashboard";
+import ListUsers from "./Dashboard/ListUsers";
 
 const DashboardRoutes = props => {
   const { isAuth } = props;
   return isAuth ? (
     <>
-      <Route path="/dash" exact render={() => <Dashboard />} />
+      <Route exact path="/dashboard/users" render={() => <ListUsers />} />
     </>
   ) : (
     <Redirect to="/login" />
