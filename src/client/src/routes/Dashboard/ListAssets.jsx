@@ -22,7 +22,8 @@ const rows = [
   createData("123456BCDA", "Laptop", "Nikhil"),
   createData("123456BCDB", "Laptop", "Naga"),
   createData("123456BCDC", "Laptop", "Arunabh"),
-  createData("123456BCDD", "Laptop", "Rohit")
+  createData("123456BCDD", "Laptop", "Rohit"),
+  createData("123456BCDSD", "Laptop", "Sumit")
 ];
 
 class ListAssets extends Component {
