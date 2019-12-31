@@ -6,6 +6,7 @@ import ListUsers from "./Dashboard/ListUsers";
 import UserDetails from "./Dashboard/UserDetails";
 import AddNewAsset from "./Dashboard/AddNewAsset";
 import AssignAsset from "./Dashboard/AssignAsset";
+import GenerateReport from "./Dashboard/GenerateReport";
 
 const DashboardRoutes = props => {
   const { isAuth } = props;
@@ -26,6 +27,11 @@ const DashboardRoutes = props => {
         exact
         path="/dashboard/assets/add_asset"
         render={() => <AddNewAsset />}
+      />
+      <Route
+        exact
+        path="/dashboard/generate_report"
+        render={() => <GenerateReport />}
       />
     </>
   ) : (
