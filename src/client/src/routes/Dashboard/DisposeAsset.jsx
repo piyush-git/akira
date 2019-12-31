@@ -7,7 +7,7 @@ import {
   MenuItem,
   Button
 } from "@material-ui/core";
-import styles from "./DeleteCategory.module.css";
+import styles from "./DisposeAsset.module.css";
 
 const availableAssets = [
   {
@@ -43,7 +43,7 @@ class DisposeAsset extends React.Component {
     return (
       <Container>
         <Typography variant="h4" component="h2" className={styles.heading}>
-          Delete Asset
+          Dispose Asset
         </Typography>
         <TextField
           id="outlined-select-currency"
