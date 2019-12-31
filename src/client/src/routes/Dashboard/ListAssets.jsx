@@ -8,7 +8,8 @@ import {
   TableRow,
   Paper,
   Container,
-  Typography
+  Typography,
+  TablePagination
 } from "@material-ui/core";
 import styles from "./ListAssets.module.css";
 
@@ -32,6 +33,14 @@ class ListAssets extends Component {
 
     this.state = {};
   }
+
+  handleChangePage = () => {
+    // console.log("this")
+  };
+
+  handleChangeRowsPerPage = () => {
+    // console.log("this")
+  };
 
   render() {
     return (
@@ -61,6 +70,15 @@ class ListAssets extends Component {
             </TableBody>
           </Table>
         </TableContainer>
+        <TablePagination
+          rowsPerPageOptions={[5, 10, 25]}
+          component="div"
+          count={rows.length}
+          rowsPerPage={10}
+          page={0}
+          onChangePage={this.handleChangePage}
+          onChangeRowsPerPage={this.handleChangeRowsPerPage}
+        />
       </Container>
     );
   }
