@@ -5,7 +5,7 @@ const Login = () => {
   return (
     <>
       <div>LOGIN PAGE</div>
-      <Link to="/dash">GOTO DASHBOARD</Link>
+      <Link to="/dashboard">GOTO DASHBOARD</Link>
     </>
   );
 };

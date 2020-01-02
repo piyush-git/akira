@@ -9,7 +9,9 @@ import {
   Paper,
   Container,
   Typography,
-  TablePagination
+  TablePagination,
+  Button,
+  Box
 } from "@material-ui/core";
 import styles from "./ListAssets.module.css";
 
@@ -79,6 +81,14 @@ class ListAssets extends Component {
           onChangePage={this.handleChangePage}
           onChangeRowsPerPage={this.handleChangeRowsPerPage}
         />
+        <Box display="flex" justifyContent="center">
+          <Button variant="contained" color="primary">
+            Filter
+          </Button>
+          <Button variant="contained" color="primary">
+            Sort
+          </Button>
+        </Box>
       </Container>
     );
   }

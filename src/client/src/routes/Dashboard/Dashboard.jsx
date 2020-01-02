@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Grid } from "@material-ui/core";
+import { Grid, Container } from "@material-ui/core";
 import styles from "./Dashboard.module.css";
 
 class Dashboard extends Component {
@@ -11,7 +11,7 @@ class Dashboard extends Component {
 
   render() {
     return (
-      <div>
+      <Container>
         <Grid container spacing={3}>
           <Grid item xs={6}>
             <div className={styles.roundedTopDiv}>
@@ -50,7 +50,7 @@ class Dashboard extends Component {
             <p>By Nikhil</p>
           </div>
         </Grid>
-      </div>
+      </Container>
     );
   }
 }
