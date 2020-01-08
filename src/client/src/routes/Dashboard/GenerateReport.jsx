@@ -7,12 +7,24 @@ import {
 } from "@material-ui/pickers";
 import DateFnsUtils from "@date-io/date-fns";
 import styles from "./GenerateReport.module.css";
+import axios from "../../utils/axiosInterceptor";
 
 class GenerateReport extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
+
+  componentDidMount = () => {
+    axios
+      .get("/")
+      .then(res => {
+        console.log(res);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
 
   render() {
     return (
