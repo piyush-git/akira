@@ -1,7 +1,11 @@
 from app.main.routes.auth_controller import UserLogin, LogoutAPI, UserSignUp, FacebookAuthorize, GithubAuthorize
 from app.main import api
 
+from app.main.routes.categories_controller import Categories
+from app.main.routes.assets_controller import Assets
+from app.main.routes.assets_log_controller import AssetsLog
 from app.main.routes.localization_controller import Localization
+
 
 
 def add_resources(app):
@@ -17,6 +21,11 @@ def add_resources(app):
     api.add_resource(FacebookAuthorize, '/facebook')
     api.add_resource(GithubAuthorize, '/github')
     api.add_resource(Localization, "/localization")
+
+
+    api.add_resource(Categories, '/categories')
+    api.add_resource(Assets, "/assets")
+    api.add_resource(AssetsLog, "/assets/assign")
 
 
 def register_blueprints(app):
