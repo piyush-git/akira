@@ -1,0 +1,25 @@
+.body {
+  margin-top: 20px;
+}
+
+.textFields {
+  margin-bottom: 10px !important;
+}
+
+.heading {
+  margin-bottom: 30px !important;
+}
+
+.uploadPicture {
+  display: none;
+}
+
+.uploadButton {
+  margin: 10px 10px !important;
+}
+
+.profilePicture {
+  margin: auto;
+  width: 100px;
+  height: 100px;
+}
