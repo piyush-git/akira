@@ -13,34 +13,44 @@ import {
 } from "@material-ui/core";
 
 import styles from "./UserDetails.module.css";
+import axios from "../../utils/axiosInterceptor";
 
 class UserDetails extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      data: []
+    };
   }
 
   componentDidMount() {
     // We will need this ID to make an API call for the particular user.
-    // const {
-    //   renderProps: {
-    //     match: {
-    //       params: { id }
-    //     }
-    //   }
-    // } = this.props;
-    const data = {
-      username: "Karthikeyan",
-      title: "XYZ",
-      reportingTo: "Nikhil",
-      gender: "Male",
-      age: 20,
-      phoneNumber: 123456,
-      address: "1-2-3 ABC",
-      picture:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/220px-User_icon_2.svg.png"
-    };
-    this.setState({ data });
+    const {
+      renderProps: {
+        match: {
+          params: { id }
+        }
+      }
+    } = this.props;
+
+    axios.get(`/users/${id}`).then(response =>
+      this.setState({
+        data: response.data.data
+      })
+    );
+
+    // const data = {
+    //   username: "Karthikeyan",
+    //   title: "XYZ",
+    //   reportingTo: "Nikhil",
+    //   gender: "Male",
+    //   age: 20,
+    //   phoneNumber: 123456,
+    //   address: "1-2-3 ABC",
+    //   picture:
+    //     "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/220px-User_icon_2.svg.png"
+    // };
+    // this.setState({ data });
   }
 
   render() {
@@ -62,7 +72,7 @@ class UserDetails extends React.Component {
             >
               <img
                 src={data.picture}
-                alt={data.username}
+                alt={data.first_name}
                 className={styles.picture}
               />
             </Box>
@@ -73,7 +83,7 @@ class UserDetails extends React.Component {
                     <TableCell align="center" component="th" scope="row">
                       Name:
                     </TableCell>
-                    <TableCell align="center">{data.username}</TableCell>
+                    <TableCell align="center">{data.first_name}</TableCell>
                   </TableRow>
                   <TableRow>
                     <TableCell align="center" component="th" scope="row">
@@ -97,13 +107,13 @@ class UserDetails extends React.Component {
                     <TableCell align="center" component="th" scope="row">
                       Reporting To:
                     </TableCell>
-                    <TableCell align="center">{data.reportingTo}</TableCell>
+                    <TableCell align="center">{data.reporting_to}</TableCell>
                   </TableRow>
                   <TableRow>
                     <TableCell align="center" component="th" scope="row">
                       Phone Number:
                     </TableCell>
-                    <TableCell align="center">{data.phoneNumber}</TableCell>
+                    <TableCell align="center">{data.phone_no}</TableCell>
                   </TableRow>
                   <TableRow>
                     <TableCell align="center" component="th" scope="row">
