@@ -15,20 +15,20 @@ import {
   KeyboardDatePicker
 } from "@material-ui/pickers";
 import DateFnsUtils from "@date-io/date-fns";
-import styles from "./EditAsset.module.css";
+import styles from "./EditAssert.module.css";
 
-class EditAsset extends Component {
+class EditAssert extends Component {
   constructor() {
     super();
     this.state = {
-      assetID: "",
-      assetPicture: "",
-      assetName: "",
-      assetPurchaseDate: new Date(Date.now()),
-      assetCost: "",
-      assetBrand: "",
-      editedAssetCategory: "",
-      assetCategory: ["Electronics", "stationary"]
+      assertID: "",
+      assertPicture: "",
+      assertName: "",
+      assertPurchaseDate: new Date(Date.now()),
+      assertCost: "",
+      assertBrand: "",
+      editedAssertCategory: "",
+      assertCategory: ["Electronics", "stationary"]
     };
   }
 
@@ -44,14 +44,14 @@ class EditAsset extends Component {
 
   render() {
     const {
-      assetID,
-      assetPicture,
-      assetName,
-      assetPurchaseDate,
-      assetCost,
-      assetBrand,
-      editedAssetCategory,
-      assetCategory
+      assertID,
+      assertPicture,
+      assertName,
+      assertPurchaseDate,
+      assertCost,
+      assertBrand,
+      editedAssertCategory,
+      assertCategory
     } = this.state;
 
     return (
@@ -59,34 +59,34 @@ class EditAsset extends Component {
         <Container>
           <form onSubmit={this.handleSubmit}>
             <Typography variant="h4" component="h2" className={styles.heading}>
-              Edit Asset
+              Edit Assert
             </Typography>
             <FormGroup>
               <FormControl>
                 <img
-                  className={styles.assetPicture}
-                  src={assetPicture}
+                  className={styles.assertPicture}
+                  src={assertPicture}
                   alt=""
                 />
               </FormControl>
               <FormControl>
                 <TextField
                   className={styles.textFields}
-                  label="Asset Name"
+                  label="Assert Name"
                   variant="outlined"
-                  name="assetName"
+                  name="assertName"
                   onChange={e => this.handleChange(e)}
-                  value={assetName}
+                  value={assertName}
                 />
               </FormControl>
               <FormControl>
                 <TextField
                   className={styles.textFields}
-                  label="Asset ID"
+                  label="Assert ID"
                   variant="outlined"
-                  name="assetID"
+                  name="assertID"
                   onChange={e => this.handleChange(e)}
-                  value={assetID}
+                  value={assertID}
                 />
               </FormControl>
               <FormControl variant="outlined">
@@ -96,7 +96,7 @@ class EditAsset extends Component {
                     margin="normal"
                     label="Date of Purchase"
                     format="dd/MM/yyyy"
-                    value={assetPurchaseDate}
+                    value={assertPurchaseDate}
                     onChange={this.handleDateChange}
                     fullWidth
                   />
@@ -105,25 +105,25 @@ class EditAsset extends Component {
               <FormControl>
                 <TextField
                   className={styles.textFields}
-                  label="Asset Cost"
+                  label="Assert Cost"
                   variant="outlined"
-                  name="assetCost"
+                  name="assertCost"
                   onChange={e => this.handleChange(e)}
-                  value={assetCost}
+                  value={assertCost}
                 />
               </FormControl>
               <FormControl variant="outlined">
-                <InputLabel htmlFor="editedAssetCategory">
+                <InputLabel htmlFor="editedAssertCategory">
                   Select Title
                 </InputLabel>
                 <Select
                   className={styles.textFields}
-                  value={editedAssetCategory}
-                  id="editedAssetCategory"
-                  name="editedAssetCategory"
+                  value={editedAssertCategory}
+                  id="editedAssertCategory"
+                  name="editedAssertCategory"
                   onChange={e => this.handleChange(e)}
                 >
-                  {assetCategory.map(elm => (
+                  {assertCategory.map(elm => (
                     <MenuItem key={elm} value={elm}>
                       {elm}
                     </MenuItem>
@@ -133,17 +133,15 @@ class EditAsset extends Component {
               <FormControl>
                 <TextField
                   className={styles.textFields}
-                  label="Asset Brand"
+                  label="Assert Brand"
                   variant="outlined"
-                  name="assetBrand"
+                  name="assertBrand"
                   onChange={e => this.handleChange(e)}
-                  value={assetBrand}
+                  value={assertBrand}
                 />
               </FormControl>
             </FormGroup>
-            <Button variant="contained" color="primary" type="submit">
-              Edit
-            </Button>
+            <Button type="submit">Edit</Button>
           </form>
         </Container>
       </div>
@@ -151,4 +149,4 @@ class EditAsset extends Component {
   }
 }
 
-export default EditAsset;
+export default EditAssert;
