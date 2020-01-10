@@ -1,0 +1,11 @@
+.heading {
+  margin: 30px 0 !important;
+}
+
+.tableHeading {
+  background-color: #3f51b5;
+}
+
+.tableHeading th {
+  color: #fff;
+}
