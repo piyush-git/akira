@@ -1,107 +1,94 @@
-import React from "react";
+import React, { Component } from "react";
 import {
-  Container,
-  Typography,
   Table,
-  TableHead,
   TableBody,
   TableCell,
   TableContainer,
+  TableHead,
   TableRow,
   Paper,
-  ButtonGroup,
-  Button
+  Container,
+  Typography,
+  TablePagination,
+  Button,
+  Box
 } from "@material-ui/core";
-
 import styles from "./ListAssets.module.css";
-// import axios from "../../utils/axiosInterceptor";
 
-const dummyData = [
-  {
-    code: "123456",
-    serial: "XYZ",
-    assignedTo: "Amit"
-  },
-  {
-    code: "123457",
-    serial: "XYZ2",
-    assignedTo: "Mihir"
-  },
-  {
-    code: "123454",
-    serial: "XYZ3",
-    assignedTo: "Rahul"
-  },
-  {
-    code: "123455",
-    serial: "XYZ4",
-    assignedTo: "KK"
-  },
-  {
-    code: "123452",
-    serial: "XYZ5",
-    assignedTo: "Ashish"
-  },
-  {
-    code: "123459",
-    serial: "XYZ6",
-    assignedTo: "Manish"
-  }
+function createData(itemUID, itemName, assignedTo) {
+  return { itemUID, itemName, assignedTo };
+}
+
+const rows = [
+  createData("123456XYZ", "Laptop", "Piyush"),
+  createData("123456ABC", "Laptop", "Karthik"),
+  createData("123456BCDA", "Laptop", "Nikhil"),
+  createData("123456BCDB", "Laptop", "Naga"),
+  createData("123456BCDC", "Laptop", "Arunabh"),
+  createData("123456BCDD", "Laptop", "Rohit"),
+  createData("123456BCDSD", "Laptop", "Sumit")
 ];
 
-class ListAssets extends React.Component {
+class ListAssets extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      data: []
-    };
+
+    this.state = {};
   }
+
+  handleChangePage = () => {
+    // console.log("this")
+  };
+
+  handleChangeRowsPerPage = () => {
+    // console.log("this")
+  };
 
   render() {
     return (
       <Container>
         <Typography variant="h4" component="h2" className={styles.heading}>
-          All Assets
+          List Of Assets
         </Typography>
-
         <TableContainer component={Paper}>
           <Table>
             <TableHead>
-              <TableRow className={styles.tableHeading}>
-                <TableCell align="center" component="th" scope="row">
-                  Inventory Code
-                </TableCell>
-                <TableCell align="center" component="th" scope="row">
-                  Serial Number
-                </TableCell>
-                <TableCell align="center" component="th" scope="row">
-                  Assigned To
-                </TableCell>
+              <TableRow>
+                <TableCell align="left">Inventory Code</TableCell>
+                <TableCell align="left">Item Name</TableCell>
+                <TableCell align="left">Assigned To</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
-              {dummyData.map(el => (
-                <TableRow>
-                  <TableCell align="center" component="th" scope="row">
-                    {el.code}
+              {rows.map(row => (
+                <TableRow key={row.itemUID}>
+                  <TableCell component="th" scope="row">
+                    {row.itemUID}
                   </TableCell>
-                  <TableCell align="center">{el.serial}</TableCell>
-                  <TableCell align="center">{el.assignedTo}</TableCell>
+                  <TableCell align="left">{row.itemName}</TableCell>
+                  <TableCell align="left">{row.assignedTo}</TableCell>
                 </TableRow>
               ))}
             </TableBody>
           </Table>
         </TableContainer>
-        <ButtonGroup
-          variant="contained"
-          size="large"
-          color="dark"
-          aria-label="contained large primary button group"
-          fullWidth
-        >
-          <Button fullWidth>Filter</Button>
-          <Button fullWidth>Sort</Button>
-        </ButtonGroup>
+        <TablePagination
+          rowsPerPageOptions={[5, 10, 25]}
+          component="div"
+          count={rows.length}
+          rowsPerPage={10}
+          page={0}
+          onChangePage={this.handleChangePage}
+          onChangeRowsPerPage={this.handleChangeRowsPerPage}
+        />
+        <Box display="flex" justifyContent="center">
+          <Button variant="contained" color="primary">
+            Filter
+          </Button>
+          <Button variant="contained" color="primary">
+            Sort
+          </Button>
+        </Box>
       </Container>
     );
   }
