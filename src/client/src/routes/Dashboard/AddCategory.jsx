@@ -9,7 +9,7 @@ import {
   Box
 } from "@material-ui/core";
 import styles from "./AddCategory.module.css";
-import addCategory from "../../redux/categories/actions";
+import { addCategory } from "../../redux/categories/actions";
 
 class AddCategory extends Component {
   constructor(props) {
