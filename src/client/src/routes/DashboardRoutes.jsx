@@ -10,6 +10,8 @@ import GenerateReport from "./Dashboard/GenerateReport";
 import DeleteCategory from "./Dashboard/DeleteCategory";
 import DisposeAsset from "./Dashboard/DisposeAsset";
 
+import AddCategory from "./Dashboard/AddCategory";
+
 const DashboardRoutes = props => {
   const { isAuth } = props;
   return isAuth ? (
@@ -44,6 +46,11 @@ const DashboardRoutes = props => {
         exact
         path="/dashboard/categories/delete"
         render={() => <DeleteCategory />}
+      />
+      <Route
+        exact
+        path="/dashboard/categories/add"
+        render={() => <AddCategory />}
       />
     </>
   ) : (
