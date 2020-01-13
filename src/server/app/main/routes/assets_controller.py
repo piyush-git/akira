@@ -1,6 +1,6 @@
 from flask import request
 from flask_restful import Resource
-from ..services.asset_service import save_asset, get_assets, get_asset, delete_asset
+from ..services.assets_service import save_asset, get_assets, get_asset, delete_asset
 
 
 class Assets(Resource):
