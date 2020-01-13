@@ -6,6 +6,7 @@ from app.main.routes.assets_controller import Assets
 from app.main.routes.assets_log_controller import AssetsLog
 from app.main.routes.localization_controller import Localization
 from app.main.routes.dispose_asset import DisposeAsset
+from app.main.routes.dashboard_controller import Dashboard
 
 
 def add_resources(app):
@@ -23,9 +24,11 @@ def add_resources(app):
     api.add_resource(Localization, "/localization")
 
     api.add_resource(Categories, '/categories')
-    api.add_resource(Assets, "/assets")
+    api.add_resource(Assets, "/assets", '/assets/<id>')
     api.add_resource(AssetsLog, "/assets/assign")
     api.add_resource(AssetsLog, "/assets/dispose")
+    api.add_resource(AssetsLog, '/asset_logs/<id>')
+    api.add_resource(Dashboard, '/dashboard')
 
 
 def register_blueprints(app):
